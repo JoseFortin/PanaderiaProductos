@@ -27,7 +27,7 @@ public class Main {
    private static ProductoModelo model= new ProductoModelo();
     public static void main ( String[] args ) {
     
-       Funciones.encabezado("ADMINISTRACION DE PRUDUCTOS");
+       Funciones.encabezado("ADMINISTRACION DE PRUDUCTOS (PANADERIA FORTIN)");
         String menuOption = "L";
         while (!menuOption.contentEquals("S")){
             switch(menuOption){
@@ -59,22 +59,20 @@ public class Main {
              ArrayList<Producto>productos = model.obtenerProductos();
              for(int i = 0; i< productos.size(); i++){
                  Funciones.print(productos.get(i).getRow());
-                 Funciones.separador();
-                 
+                 Funciones.separador();    
              }
         }
 
      private static void insertarUnProducto(){
         Producto nuevoProducto = new Producto();
         Funciones.encabezado("Nuevo Producto");
-        nuevoProducto.setNombre(Funciones.capturarCampo(escribir,"Nombre:","Producto XYZ"));
+        nuevoProducto.setNombre(Funciones.capturarCampo(escribir,"Nombre:","Producto (Torta)"));
         nuevoProducto.setPrecio(Double.parseDouble(Funciones.capturarCampo(escribir,"Precio:","100.00")));
         nuevoProducto.setCantidad(Integer.parseInt(Funciones.capturarCampo(escribir, "Cantidad","10")));
         nuevoProducto.setObservacion(Funciones.capturarCampo(escribir, "Observación",""));
-        Funciones.separador();
       int insertado = model.agregarProducto(nuevoProducto);
       if(insertado > 0){
-          Funciones.print("Producto Agregado Satisfactoriamente!");
+          Funciones.print("El Producto Agrego Satisfactoriamente");
       }
        Funciones.separador();
      }
@@ -120,6 +118,7 @@ public class Main {
 
         for (int a = 0; a < productos.size(); a++) {
             if (Idproducto == (productos.get(a).getId())) {
+                Funciones.print("Nombre: " + productos.get(a).getNombre() + "\n Precio: "+ productos.get(a).getPrecio() + "\n Cantidad: "+ productos.get(a).getCantidad() + "\n Observacion: "+ productos.get(a).getObservacion());
                 Funciones.print("¿Desea eliminar el producto? S/N: ");
                 String confirmar = escribir.nextLine().toUpperCase();
                 
@@ -128,7 +127,7 @@ public class Main {
 
                     prodborrado = model.deleteProducto(Idproducto);
                 } else {
-                   Funciones.print("El Producto no ha podido ser Eliminado");
+                   Funciones.print("El Producto no se Elimino");
                     break;
                 }
             }

@@ -29,11 +29,13 @@ public class Funciones {
     
     }
     
-    public static String capturarCampo(Scanner entradaTeclado, String leyenda, String valorPredeterminado){
-        print(leyenda + "(" + valorPredeterminado +" )");
-        String input = entradaTeclado.nextLine();
+    public static String capturarCampo(Scanner escribir, String leyenda, String valorPredeterminado){
         
-        if(input.isEmpty()){
+            
+        print(leyenda + "(" + valorPredeterminado +" )");
+        String input = escribir.nextLine();
+        
+        if(input.isEmpty() || input.contentEquals(valorPredeterminado)){
             return valorPredeterminado;
         }
         return input;

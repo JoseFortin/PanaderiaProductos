@@ -57,7 +57,7 @@ public class ProductoModelo {
  public int agregarProducto (Producto nuevoProducto){
  try{
    
-     String insertSql = "INSERT INTO productos (nombre, observacion,cantidad,precio) values(?,?,?,?);";
+     String insertSql = "INSERT INTO productos (nombre,observacion,cantidad,precio) values(?,?,?,?);";
      PreparedStatement comandoSQL = _conexion1.prepareStatement(insertSql);
      comandoSQL.setString(1, nuevoProducto.getNombre());
      comandoSQL.setString(2, nuevoProducto.getObservacion());
